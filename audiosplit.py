@@ -5,7 +5,7 @@ import contextlib
 from math import ceil
 
 fname = './audio.wav'
-if not os.path.exists('Splits/'):
+if not os.path.exists('./Splits/'):
 	os.mkdir('Splits')
 
 with contextlib.closing(wave.open(fname,'r')) as f:
@@ -24,7 +24,7 @@ while(1):
 	if(t1>duration):
 		break
 	newAudio2 = newAudio[t1:t2]
-	newAudio2.export('Splits/'+str(i)+'.wav', format="wav")
+	newAudio2.export('./Splits/'+str(i)+'.wav', format="wav")
 	t1 += 5000
 	t2 += 5000
 	i+=1
