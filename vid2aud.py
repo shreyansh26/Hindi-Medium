@@ -11,7 +11,8 @@ ydl_opts = {
     }],
 }
 with youtube_dl.YoutubeDL(ydl_opts) as ydl:
-    ydl.download(['https://www.youtube.com/watch?v=jlmyJLnIOYw'])
+    ydl.download(['https://www.youtube.com/watch?v=JvOT4strzrA'])
 
 for file in glob.glob("./*.wav"):
     os.rename(file, 'audio.wav')
+#https://www.youtube.com/watch?v=jlmyJLnIOYw
