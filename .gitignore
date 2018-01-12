@@ -2,3 +2,5 @@ Splits/
 Splits2/
 audio.wav
 __pycache__/
+Videos/
+*.srt
