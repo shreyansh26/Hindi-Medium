@@ -4,6 +4,7 @@ from translatetext import Microsoft_TTR
 from vid2aud import vid2aud
 from audiosplit import audiosplit
 import shutil
+import glob
 
 vid2aud()
 audiosplit()
@@ -79,4 +80,6 @@ for i in range(1, num_files+1):
 
 f_en.close()
 f_hi.close()
-shutil.rmtree('./Splits')
+files = glob.glob('./Splits/*')
+for f in files:
+    os.remove(f)
