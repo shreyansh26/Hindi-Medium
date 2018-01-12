@@ -1,7 +1,7 @@
 import requests
-import httplib
 import uuid
 import json
+import http.client
 
 class Microsoft_ASR():
     def __init__(self):
@@ -10,22 +10,18 @@ class Microsoft_ASR():
         pass
 
     def get_speech_token(self):
-        FetchTokenURI = "/sts/v1.0/issueToken"
-        header = {'Ocp-Apim-Subscription-Key': self.sub_key}
-        conn = httplib.HTTPSConnection('api.cognitive.microsoft.com')
-        body = ""
-        conn.request("POST", FetchTokenURI, body, header)
-        response = conn.getresponse()
-        str_data = response.read()
-        conn.close()
-        self.token = str_data
-        print "Got Token: ", self.token
+        cognitiveServiceUrl = 'https://api.cognitive.microsoft.com/sts/v1.0/issueToken'
+        # Request Access Token
+        requestHeader = {'Ocp-Apim-Subscription-Key': self.sub_key}
+        responseResult = requests.post(cognitiveServiceUrl, headers=requestHeader)
+        self.token = responseResult.text
+        #print ("Got Token: ", self.token)
         return True
 
     def transcribe(self,speech_file):
         # Grab the token if we need it
         if self.token is None:
-            print "No Token... Getting one"
+            print ("No Token... Getting one")
             self.get_speech_token()
 
         endpoint = 'https://speech.platform.bing.com/recognize'
@@ -49,19 +45,19 @@ class Microsoft_ASR():
                         break
                     yield data
 
-        headers = {'Authorization': 'Bearer ' + self.token, 
+        headers = {'Authorization': 'Bearer ' + str(self.token), 
                    'Content-Type': content_type}
         resp = requests.post(endpoint, 
                             params=params, 
                             data=stream_audio_file(speech_file), 
                             headers=headers)
-        print(resp.text)
+        #print(resp.text)
         val = json.loads(resp.text)
-        return val["results"][0]["name"], val["results"][0]["confidence"]
-
-if __name__ == "__main__":
-    ms_asr = Microsoft_ASR()
-    ms_asr.get_speech_token()
-    text, confidence = ms_asr.transcribe('39.wav')
-    print "Text: ", text
-    print "Confidence: ", confidence
+        if "LOWCONF" in val["header"]["properties"].keys():
+            return "noise", 0
+        elif "NOSPEECH" in val["header"]["properties"].keys():
+            return " ", 100
+        elif "results" not in val.keys():
+            return " ", 100
+        else:
+            return val["results"][0]["name"], val["results"][0]["confidence"]
