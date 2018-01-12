@@ -12,7 +12,8 @@ def vid2aud():
 	    }],
 	}
 	with youtube_dl.YoutubeDL(ydl_opts) as ydl:
-	    ydl.download(['https://www.youtube.com/watch?v=JvOT4strzrA'])
+	    ydl.download(['https://www.youtube.com/watch?v=ISbQntlH9n0'])
 
 	for file in glob.glob("./*.wav"):
 	    os.rename(file, 'audio.wav')
+	#https://www.youtube.com/watch?v=JvOT4strzrA
