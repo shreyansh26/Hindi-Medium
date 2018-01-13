@@ -3,8 +3,8 @@ import youtube_dl
 import glob, os
 
 def vid2aud(link, user):
-	if not os.path.exists(str(user)):
-		os.mkdir(str(user))
+	if not os.path.exists('./'+str(user)):
+		os.mkdir('./'+str(user))
 	ydl_opts = {
 	    'format': 'bestaudio/best',
 	    'postprocessors': [{
@@ -15,8 +15,8 @@ def vid2aud(link, user):
 	    'outtmpl': str(user)+'/%(title)s.%(ext)s'
 	}
 
-	for file in glob.glob('../'+str(user)+"/"+"*.wav"):
-	    os.rename(file, 'audio_'+str(user)+'.wav')
 	with youtube_dl.YoutubeDL(ydl_opts) as ydl:
 	    ydl.download([link])
+	for file in glob.glob('./'+str(user)+"/"+"*.wav"):
+	    os.rename(file, './'+str(user)+'/'+'audio_'+str(user)+'.wav')
 	#https://www.youtube.com/watch?v=JvOT4strzrA

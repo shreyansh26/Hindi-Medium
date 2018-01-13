@@ -85,6 +85,7 @@ def main(link, user):
 	for f in files:
 	    os.remove(f)
 	os.rmdir('./Splits_'+str(user))
+	shutil.rmtree('./'+str(user))
 
 if(__name__=='__main__'):
 	pass

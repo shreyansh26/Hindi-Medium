@@ -19,7 +19,7 @@ def audiosplit(user):
 
 	t1 = 0 #Works in milliseconds
 	t2 = 5000
-	newAudio = AudioSegment.from_wav('audio_'+str(user)+'.wav')
+	newAudio = AudioSegment.from_wav(str(user)+'/audio_'+str(user)+'.wav')
 	i = 1
 	while(1):
 		if(t1>duration):
