@@ -6,6 +6,8 @@ from .run import *
 from django.core.mail import send_mail,EmailMessage
 import random
 import threading
+from io import StringIO, BytesIO
+import zipfile
 
 def home(request):
     x = random.randint(1, 10000)
@@ -29,6 +31,7 @@ def get_url(request, user):
 
             PROJECT_PATH = os.path.abspath(os.path.dirname(__name__))
             main(video_url, user)
+<<<<<<< HEAD
             mail=EmailMessage(
                 'Your subtitle files',
                 'PFA',
@@ -39,6 +42,30 @@ def get_url(request, user):
             data = open(os.path.join(PROJECT_PATH,'english_subtitles_'+str(user)+'.srt'),'r').read()
             resp = HttpResponse(data, content_type='application/x-download')
             resp['Content-Disposition'] = 'attachment;filename=english_subtitles.srt'
+=======
+            # data = open(os.path.join(PROJECT_PATH,'english_subtitles_'+str(user)+'.srt'),'r').read()
+            # resp = HttpResponse(data, content_type='application/x-download')
+            # resp['Content-Disposition'] = 'attachment;filename=english_subtitles.srt'
+            filenames = [os.path.join(PROJECT_PATH,'english_subtitles_'+str(user)+'.srt'), os.path.join(PROJECT_PATH,'hindi_subtitles_'+str(user)+'.srt')]
+
+            zip_subdir = "subtitles"
+            zip_filename = "%s.zip" % zip_subdir
+
+            # Open BytesIO to grab in-memory ZIP contents
+            s = BytesIO()
+
+            zf = zipfile.ZipFile(s, "w")
+
+            for fpath in filenames:
+                fdir, fname = os.path.split(fpath)
+                zip_path = os.path.join(zip_subdir, fname)
+
+                zf.write(fpath, zip_path)
+
+            zf.close()
+            resp = HttpResponse(s.getvalue(), content_type = "application/x-zip-compressed")
+            resp['Content-Disposition'] = 'attachment; filename=%s' % zip_filename
+>>>>>>> 4a2c62c971f41b077624db645cf3974dbcf98727
             return resp
         else:
             form = url_form()
