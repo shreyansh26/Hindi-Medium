@@ -83,3 +83,4 @@ f_hi.close()
 files = glob.glob('./Splits/*')
 for f in files:
     os.remove(f)
+os.rmdir('Splits/')
