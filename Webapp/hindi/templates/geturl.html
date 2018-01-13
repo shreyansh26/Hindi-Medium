@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html>
+<body>
+<form method="post" id = "form">
+  {% csrf_token %}
+  {{ form }}
+  <button type="submit" form="form" value="Submit" >Submit</button>
+  <p id="t1"></p>
+  <script>
+      function func(){
+        document.write("Thankyou for using our service...");
+        alert("Your file is being downloaded");
+        //document.getElementById("t1").innerHTML="yo";
+      }
+  </script>
+</form>
+
+</body>
+</html>
