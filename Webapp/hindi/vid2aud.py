@@ -15,7 +15,7 @@ def vid2aud(link, user):
 	    'outtmpl': str(user)+'/%(title)s.%(ext)s'
 	}
 
-	for file in glob.glob(str(user)+"/"+"*.wav"):
+	for file in glob.glob('../'+str(user)+"/"+"*.wav"):
 	    os.rename(file, 'audio_'+str(user)+'.wav')
 	with youtube_dl.YoutubeDL(ydl_opts) as ydl:
 	    ydl.download([link])
