@@ -4,6 +4,7 @@ from django.http import HttpResponse
 from .forms import *
 from .run import *
 import random
+import threading
 
 
 def home(request):
@@ -20,7 +21,13 @@ def get_url(request, user):
             video_url = form.cleaned_data.get('url')
             email_user = form.cleaned_data.get('email')
             # print("Sjrei")
-            main(video_url, user)
+            t = threading.Thread(target=main,args=(video_url, user,))
+            t.setDaemon(True)
+            t.start()
+            html="<html><head><script>alert('Your file will be downloaded shortly')</script></head><body>Thankyou for using our service</body></html>"
+
+            return HttpResponse(html)
+
         else:
             form = url_form()
     return render(request, 'geturl.html', {'form': form})
