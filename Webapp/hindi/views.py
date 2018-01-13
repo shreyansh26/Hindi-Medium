@@ -3,10 +3,10 @@ from django.http import HttpResponseRedirect
 from django.http import HttpResponse
 from .forms import *
 from .run import *
-from django.core.mail import send_mail,EmailMessage
 import random
 import threading
 from io import StringIO, BytesIO
+from django.core.mail import send_mail, EmailMessage
 import zipfile
 
 def home(request):
@@ -27,22 +27,8 @@ def get_url(request, user):
             # t.setDaemon(True)
             # t.start()
             # html="<html><head><script>alert('Your file will be downloaded shortly')</script></head><body>Thankyou for using our service</body></html>"
-
-
             PROJECT_PATH = os.path.abspath(os.path.dirname(__name__))
             main(video_url, user)
-<<<<<<< HEAD
-            mail=EmailMessage(
-                'Your subtitle files',
-                'PFA',
-                'hindimedium969@gmail.com',
-                [email_user,],
-            )
-            mail.send()
-            data = open(os.path.join(PROJECT_PATH,'english_subtitles_'+str(user)+'.srt'),'r').read()
-            resp = HttpResponse(data, content_type='application/x-download')
-            resp['Content-Disposition'] = 'attachment;filename=english_subtitles.srt'
-=======
             # data = open(os.path.join(PROJECT_PATH,'english_subtitles_'+str(user)+'.srt'),'r').read()
             # resp = HttpResponse(data, content_type='application/x-download')
             # resp['Content-Disposition'] = 'attachment;filename=english_subtitles.srt'
@@ -65,7 +51,15 @@ def get_url(request, user):
             zf.close()
             resp = HttpResponse(s.getvalue(), content_type = "application/x-zip-compressed")
             resp['Content-Disposition'] = 'attachment; filename=%s' % zip_filename
->>>>>>> 4a2c62c971f41b077624db645cf3974dbcf98727
+            mail=EmailMessage(
+                'Subtitle files',
+                'PFA the subtitle files for your video',
+                'hindimedium969@gmail.com',
+                [email_user,],
+            )
+            for ff in filenames:
+                mail.attach_file(ff)
+            mail.send()
             return resp
         else:
             form = url_form()
