@@ -4,11 +4,11 @@
 <form method="post" id = "form">
   {% csrf_token %}
   {{ form }}
-  <button type="submit" form="form" value="Submit" >Submit</button>
+  <button type="submit" form="form" value="Submit" onclick="func()" >Submit</button>
   <p id="t1"></p>
   <script>
       function func(){
-        document.write("Thankyou for using our service...");
+        document.getElementById('t1').innerHTML="Thankyou for using our service...";
         alert("Your file is being downloaded");
         //document.getElementById("t1").innerHTML="yo";
       }
