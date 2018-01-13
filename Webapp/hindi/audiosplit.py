@@ -5,7 +5,7 @@ import contextlib
 from math import ceil
 
 def audiosplit(user):
-	fname = './audio_'+str(user)+'.wav'
+	fname = str(user)+'/audio_'+str(user)+'.wav'
 	if not os.path.exists('./Splits_' +str(user)):
 		os.mkdir('Splits_' +str(user))
 
