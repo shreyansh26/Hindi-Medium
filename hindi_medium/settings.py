@@ -105,9 +105,10 @@ EMAIL_HOST_PASSWORD = 'jrgumvpxnydnleeu'
 EMAIL_PORT = 587
 EMAIL_USE_TLS = True
 
+PROJECT_ROOT = os.path.abspath(os.path.dirname(__file__))
 # import os.path
 Temp_path = os.path.realpath('.')
-STATIC_ROOT = ''
+STATIC_ROOT = os.path.join(PROJECT_ROOT,'static')
 TEMPLATE_DIRS = (Temp_path + "/templates", )
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/1.8/howto/static-files/
