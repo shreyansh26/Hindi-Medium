@@ -1,0 +1,6 @@
+Django==1.11.3
+youtube_dl==2017.12.31
+requests==2.18.4
+pydub==0.20.0
+beautifulsoup4==4.6.0
+gunicorn==19.6.0
