@@ -107,5 +107,7 @@ EMAIL_USE_TLS = True
 
 Temp_path = os.path.realpath('.')
 TEMPLATE_DIRS = (Temp_path + "/templates", )
+STATIC_ROOT = ''
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/1.8/howto/static-files/
+STATIC_URL = '/static/'
