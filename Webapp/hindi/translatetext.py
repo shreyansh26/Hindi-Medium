@@ -11,7 +11,7 @@ class Microsoft_TTR():
         cognitiveServiceUrl = 'https://api.cognitive.microsoft.com/sts/v1.0/issueToken'
         # Request Access Token
         requestHeader = {'Ocp-Apim-Subscription-Key': self.sub_key}
-        responseResult = requests.post(cognitiveServiceUrl, headers=requestHeader, verify=False)
+        responseResult = requests.post(cognitiveServiceUrl, headers=requestHeader)
         self.token = responseResult.text
         return True
 
@@ -32,7 +32,7 @@ class Microsoft_TTR():
         requestHeader = {'Accept': 'application/xml'}
 
         # Invoke Cognitive Services to perform translation
-        responseResult = requests.get(translateUrl, params=params, headers=requestHeader, verify=False)
+        responseResult = requests.get(translateUrl, params=params, headers=requestHeader)
 
         soup = BeautifulSoup(responseResult.text,"lxml")
         return  soup.get_text()
