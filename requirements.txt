@@ -6,3 +6,4 @@ beautifulsoup4==4.6.0
 gunicorn
 django-toolbelt
 ffprobe
+lxml
