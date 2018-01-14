@@ -13,7 +13,7 @@ class Microsoft_ASR():
         cognitiveServiceUrl = 'https://api.cognitive.microsoft.com/sts/v1.0/issueToken'
         # Request Access Token
         requestHeader = {'Ocp-Apim-Subscription-Key': self.sub_key}
-        responseResult = requests.post(cognitiveServiceUrl, headers=requestHeader)
+        responseResult = requests.post(cognitiveServiceUrl, headers=requestHeader, verify=False)
         self.token = responseResult.text
         #print ("Got Token: ", self.token)
         return True
@@ -50,7 +50,7 @@ class Microsoft_ASR():
         resp = requests.post(endpoint, 
                             params=params, 
                             data=stream_audio_file(speech_file), 
-                            headers=headers)
+                            headers=headers, verify=False)
         #print(resp.text)
         val = json.loads(resp.text)
         if "LOWCONF" in val["header"]["properties"].keys():
