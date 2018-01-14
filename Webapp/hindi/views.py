@@ -7,6 +7,7 @@ import random
 import threading
 from io import StringIO, BytesIO
 import zipfile
+import os
 
 def home(request):
     x = random.randint(1, 10000)
@@ -50,6 +51,8 @@ def get_url(request, user):
             zf.close()
             resp = HttpResponse(s.getvalue(), content_type = "application/x-zip-compressed")
             resp['Content-Disposition'] = 'attachment; filename=%s' % zip_filename
+            os.remove(os.path.join(PROJECT_PATH,'english_subtitles_'+str(user)+'.srt'))
+            os.remove(os.path.join(PROJECT_PATH,'hindi_subtitles_'+str(user)+'.srt'))
             return resp
         else:
             form = url_form()
