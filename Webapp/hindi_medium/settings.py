@@ -96,6 +96,15 @@ USE_L10N = True
 
 USE_TZ = True
 
+EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
+
+# Host for sending e-mail.
+EMAIL_HOST = 'smtp.gmail.com'
+EMAIL_HOST_USER = 'hindimedium969@gmail.com'
+EMAIL_HOST_PASSWORD = 'jrgumvpxnydnleeu'
+EMAIL_PORT = 587
+EMAIL_USE_TLS = True
+
 # import os.path
 Temp_path = os.path.realpath('.')
 STATIC_ROOT = ''

@@ -6,6 +6,7 @@ from .run import *
 import random
 import threading
 from io import StringIO, BytesIO
+from django.core.mail import send_mail, EmailMessage
 import zipfile
 import os
 
@@ -51,6 +52,15 @@ def get_url(request, user):
             zf.close()
             resp = HttpResponse(s.getvalue(), content_type = "application/x-zip-compressed")
             resp['Content-Disposition'] = 'attachment; filename=%s' % zip_filename
+            mail=EmailMessage(
+                'Subtitle files',
+                'PFA the subtitle files for your video',
+                'hindimedium969@gmail.com',
+                [email_user,],
+            )
+            for ff in filenames:
+                mail.attach_file(ff)
+            mail.send()
             os.remove(os.path.join(PROJECT_PATH,'english_subtitles_'+str(user)+'.srt'))
             os.remove(os.path.join(PROJECT_PATH,'hindi_subtitles_'+str(user)+'.srt'))
             return resp
