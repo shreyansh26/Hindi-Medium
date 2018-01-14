@@ -4,3 +4,4 @@ audio.wav
 __pycache__/
 Videos/
 *.srt
+*.pyc
