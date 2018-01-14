@@ -24,7 +24,6 @@ def get_url(request, user):
         if form.is_valid():
             video_url = form.cleaned_data.get('url')
             email_user = form.cleaned_data.get('email')
-
             # t = threading.Thread(target=download, args=(request, user, video_url))
             # t.setDaemon(True)
             # t.start()
