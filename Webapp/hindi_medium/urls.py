@@ -20,6 +20,6 @@ from hindi.views import *
 urlpatterns = [
     url(r'^admin/', include(admin.site.urls)),
     url(r'home', home),
-    url(r'^geturl/(?P<user>\d+)', get_url),
+    url(r'^geturl/(?P<user>\w+)', get_url),
     # url(r'^thanks', thanks),
 ]

@@ -9,10 +9,11 @@ from io import StringIO, BytesIO
 from django.core.mail import send_mail, EmailMessage
 import zipfile
 import os
+import uuid
 
 def home(request):
-    x = random.randint(1, 10000)
-    return HttpResponseRedirect("/geturl/"+str(x))
+    x = str(uuid.uuid4())[:5]
+    return HttpResponseRedirect("/geturl/"+x)
 
 def get_url(request, user):
     # print("Sajndkans")
