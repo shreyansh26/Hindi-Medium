@@ -5,3 +5,4 @@ pydub==0.20.0
 beautifulsoup4==4.6.0
 gunicorn
 django-toolbelt
+ffprobe
