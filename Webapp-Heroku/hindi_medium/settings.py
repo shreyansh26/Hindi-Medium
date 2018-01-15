@@ -102,11 +102,9 @@ EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
 # Host for sending e-mail.
 EMAIL_HOST = 'smtp.gmail.com'
 EMAIL_HOST_USER = 'hindimedium969@gmail.com'
-EMAIL_HOST_PASSWORD = 'jrgumvpxnydnleeu'
+EMAIL_HOST_PASSWORD = ''
 EMAIL_PORT = 587
 EMAIL_USE_TLS = True
-
-CRISPY_TEMPLATE_PACK = 'uni_form'
 
 Temp_path = os.path.realpath('.')
 TEMPLATE_DIRS = (Temp_path + "/templates", )

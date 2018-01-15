@@ -5,3 +5,5 @@ __pycache__/
 Videos/
 *.srt
 *.pyc
+Submission/
+Scripts/config.py

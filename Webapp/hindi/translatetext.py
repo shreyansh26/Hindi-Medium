@@ -3,7 +3,7 @@ import requests
 
 class Microsoft_TTR():
     def __init__(self):
-        self.sub_key = 'a4cc74a21ff74904b56f4600ce31ccf9'
+        self.sub_key = 'YOUR_API_KEY'
         self.token = None
         pass
 

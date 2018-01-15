@@ -10,6 +10,10 @@ from django.core.mail import send_mail, EmailMessage
 import zipfile
 import os
 import uuid
+from platform import system as system_name # Returns the system/OS name
+from os import system as system_call 
+from time import sleep
+import subprocess
 
 def first(request):
     return render(request,'first.html')
@@ -34,9 +38,9 @@ def get_url(request, user):
             video_url = form.cleaned_data.get('url')
             email_user = form.cleaned_data.get('email')
 
-            # t = threading.Thread(target=download, args=(request, user, video_url))
-            # t.setDaemon(True)
-            # t.start()
+            t = threading.Thread(target=tryping)
+            t.setDaemon(True)
+            t.start()
             # html="<html><head><script>alert('Your file will be downloaded shortly')</script></head><body>Thankyou for using our service</body></html>"
             PROJECT_PATH = os.path.abspath(os.path.dirname(__name__))
             main(video_url, user)
@@ -87,3 +91,21 @@ def download(request, user, video_url):
     print(type(resp))
     return HttpResponse("Hello")
     # return resp
+
+def tryping():
+	for i in range(50):
+		a = subprocess.Popen(["/bin/ping", "-c1", "-w100", "google.com"], stdout=subprocess.PIPE).stdout.read()
+		print(a)
+		sleep(2)
+
+def ping(host):
+    """
+    Returns True if host (str) responds to a ping request.
+    Remember that some hosts may not respond to a ping request even if the host name is valid.
+    """
+
+    # Ping parameters as function of OS
+    parameters = "-n 1" if system_name().lower()=="windows" else "-c 1"
+
+    # Pinging
+    return system_call("ping " + parameters + " " + host) == 0

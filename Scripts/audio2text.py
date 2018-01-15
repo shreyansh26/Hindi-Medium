@@ -2,10 +2,11 @@ import requests
 import uuid
 import json
 import http.client
+from config import *
 
 class Microsoft_ASR():
     def __init__(self):
-        self.sub_key = 'd620ed68bd144ba9a540817dbfc09722'
+        self.sub_key = BING_SPEECH_API_KEY
         self.token = None
         pass
 

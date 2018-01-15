@@ -5,7 +5,7 @@ import http.client
 
 class Microsoft_ASR():
     def __init__(self):
-        self.sub_key = 'd620ed68bd144ba9a540817dbfc09722'
+        self.sub_key = 'YOUR_API_KEY'
         self.token = None
         pass
 

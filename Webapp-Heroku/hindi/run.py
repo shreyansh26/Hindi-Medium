@@ -22,6 +22,7 @@ def main(link, user):
 	start = 0
 	end = 5
 	for i in range(1, num_files+1):
+		print("Hello")
 		flag = 0
 		text, confidence = ms_asr.transcribe('./Splits_' +str(user)+'/'+str(i)+'.wav')
 		print ("Text: ", text)

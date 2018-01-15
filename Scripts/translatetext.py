@@ -1,9 +1,10 @@
 from bs4 import BeautifulSoup
 import requests
+from config import *
 
 class Microsoft_TTR():
     def __init__(self):
-        self.sub_key = 'a4cc74a21ff74904b56f4600ce31ccf9'
+        self.sub_key = TRANSLATE_TEXT_API_KEY
         self.token = None
         pass
 
