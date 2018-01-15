@@ -21,6 +21,14 @@ Since, the webapp is currently deployed on Heroku, and Heroku times out the HTTP
 
 So, for testing the app, please use a short video. Like this [one](https://www.youtube.com/watch?v=jlmyJLnIOYw). On localhost, however, you can use a video as long as you wish.
 
+## Testing
+
+* Get API keys for Microsoft Cognitive Services' Bing Speech API and Translator Text API.
+* If you wish to run just the scripts, make a file `config.py` in the `Scripts` directory, and add the constants `BING_SPEECH_API_KEY` and `TRANSLATE_TEXT_API_KEY`.
+* To run the webapp, head to either the `Webapp/hindi` directory or the `Webapp-Heroku/hindi` directory.
+* Enter the API keys in the files `audio2text.py` and `translatetext.py`.
+* Also update `Webapp/hindi_medium/settings.py` or the `Webapp-Heroku/hindi_medium/settings.py` with the proper Email host user and password you will be using for sending emails.
+
 ## Team Memebers
 
 1. [Shreyansh Singh](https://github.com/shreyansh26)
