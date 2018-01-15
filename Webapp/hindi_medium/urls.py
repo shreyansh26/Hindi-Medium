@@ -19,7 +19,10 @@ from hindi.views import *
 
 urlpatterns = [
     url(r'^admin/', include(admin.site.urls)),
-    url(r'home', home),
+    url(r'^$',first),
+    url(r'home', home,name='home'),
+    url(r'team', team,name='team'),
+    url(r'sites', sites,name='sites'),
     url(r'^geturl/(?P<user>\w+)', get_url),
     # url(r'^thanks', thanks),
 ]

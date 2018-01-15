@@ -17,6 +17,9 @@ def first(request):
 def team(request):
     return render(request,'team.html')
 
+def sites(request):
+    return render(request,'sites.html')
+
 def home(request):
     x = str(uuid.uuid4())[:5]
     return HttpResponseRedirect("/geturl/"+x)

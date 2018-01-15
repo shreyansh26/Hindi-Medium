@@ -11,6 +11,15 @@ import zipfile
 import os
 import uuid
 
+def first(request):
+    return render(request,'first.html')
+
+def team(request):
+    return render(request,'team.html')
+
+def sites(request):
+    return render(request,'sites.html')
+
 def home(request):
     x = str(uuid.uuid4())[:5]
     return HttpResponseRedirect("/geturl/"+x)
@@ -24,6 +33,7 @@ def get_url(request, user):
         if form.is_valid():
             video_url = form.cleaned_data.get('url')
             email_user = form.cleaned_data.get('email')
+
             # t = threading.Thread(target=download, args=(request, user, video_url))
             # t.setDaemon(True)
             # t.start()

@@ -12,19 +12,21 @@ https://docs.djangoproject.com/en/1.8/ref/settings/
 
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 import os
+
+
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 
 
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/1.8/howto/deployment/checklist/
 
-# No SECURITY WARNING: keep the secret key used in production secret!
+# SECURITY WARNING: keep the secret key used in production secret!
 SECRET_KEY = 'rdot-2azcpq$#+3-j68qgwt+oh&1khcr$-hucp^pj9=#peg4i9'
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['*']
+ALLOWED_HOSTS = ['ss26.pythonanywhere.com', '127.0.0.1', 'hindi-medium.herokuapp.com']
 
 
 # Application definition
@@ -104,11 +106,11 @@ EMAIL_HOST_PASSWORD = 'jrgumvpxnydnleeu'
 EMAIL_PORT = 587
 EMAIL_USE_TLS = True
 
-# import os.path
+CRISPY_TEMPLATE_PACK = 'uni_form'
+
 Temp_path = os.path.realpath('.')
-STATIC_ROOT = ''
 TEMPLATE_DIRS = (Temp_path + "/templates", )
+STATIC_ROOT = ''
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/1.8/howto/static-files/
-
 STATIC_URL = '/static/'
