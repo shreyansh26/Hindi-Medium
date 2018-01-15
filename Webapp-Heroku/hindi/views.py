@@ -11,6 +11,12 @@ import zipfile
 import os
 import uuid
 
+def first(request):
+    return render(request,'first.html')
+
+def team(request):
+    return render(request,'team.html')
+
 def home(request):
     x = str(uuid.uuid4())[:5]
     return HttpResponseRedirect("/geturl/"+x)

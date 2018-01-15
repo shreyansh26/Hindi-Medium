@@ -33,6 +33,7 @@ ALLOWED_HOSTS = ['ss26.pythonanywhere.com', '127.0.0.1', 'hindi-medium.herokuapp
 
 INSTALLED_APPS = (
     'hindi', 
+    'crispy_forms',
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
@@ -105,6 +106,8 @@ EMAIL_HOST_USER = 'hindimedium969@gmail.com'
 EMAIL_HOST_PASSWORD = 'jrgumvpxnydnleeu'
 EMAIL_PORT = 587
 EMAIL_USE_TLS = True
+
+CRISPY_TEMPLATE_PACK = 'uni_form'
 
 Temp_path = os.path.realpath('.')
 TEMPLATE_DIRS = (Temp_path + "/templates", )

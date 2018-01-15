@@ -1,15 +1,41 @@
 <!DOCTYPE html>
 <html>
+<title>Hindi Medium</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Raleway">
+<link rel='stylesheet' href='https://fonts.googleapis.com/css?family=Allan'>
+<link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
+<link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap-theme.min.css">
+<link href='https://fonts.googleapis.com/css?family=Aclonica' rel='stylesheet'>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<style>
+  body {
+      /*background-position: center;*/
+      background-size: cover;
+      background-image: url("http://www.designbolts.com/wp-content/uploads/2013/02/Grunge-Seamless-Pattern-For-Website-Background.jpg");
+      min-height: 100%;
+      color:#040d1c;
+  }
+</style>
 <body>
+  <br>
+  <span class="w3-jumbo w3-hide-small" style="font-family: Aclonica;margin-left: 30%;">Hindi Medium</span><br>
 <form method="post" id = "form">
   {% csrf_token %}
-  {{ form }}
-  <button type="submit" form="form" value="Submit" onclick="func()" >Submit</button>
-  <p id="t1"></p>
+  <div style="margin-left: 40%;margin-top:4%;font-family:Allan;font-size:25px;">
+    Enter url of video<br><div style="width:300px;font-family:Times New Roman;font-size:15px">{{ form.url }}</div><br>
+    Enter your e-mail address<br><div style="width:300px;font-family:Times New Roman;font-size:15px"">{{form.email}}</div>
+  </div><br>
+  <div style="margin-left: 50%">
+    <button class="btn btn-primary" type="submit" form="form" value="Submit" onclick="func()" >Submit</button>
+  </div>
+  <p id="t1" style="font-family:Arial;font-size:20px;text-align:center;margin-top:5%;"></p>
   <script>
       function func(){
         document.getElementById('t1').innerHTML="Thank you for using our service...<br>The subtitle files will also be mailed to you in a few minutes.";
-        alert("The subtitle files are being prepared");
+        alert("The subtitle files are being prepared.\r\nDo not close this tab.");
       }
   </script>
 </form>
