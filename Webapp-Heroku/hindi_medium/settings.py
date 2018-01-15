@@ -33,7 +33,6 @@ ALLOWED_HOSTS = ['ss26.pythonanywhere.com', '127.0.0.1', 'hindi-medium.herokuapp
 
 INSTALLED_APPS = (
     'hindi', 
-    'crispy_forms',
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
