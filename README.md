@@ -27,7 +27,12 @@ So, for testing the app, please use a short video. Like this [one](https://www.y
 * If you wish to run just the scripts, make a file `config.py` in the `Scripts` directory, and add the constants `BING_SPEECH_API_KEY` and `TRANSLATE_TEXT_API_KEY`.
 * To run the webapp, head to either the `Webapp/hindi` directory or the `Webapp-Heroku/hindi` directory.
 * Enter the API keys in the files `audio2text.py` and `translatetext.py`.
-* Also update `Webapp/hindi_medium/settings.py` or the `Webapp-Heroku/hindi_medium/settings.py` with the proper Email host user and password you will be using for sending emails.
+* Also update `Webapp/hindi_medium/settings.py` or `Webapp-Heroku/hindi_medium/settings.py` with the proper Email host user and password you will be using for sending emails.
+* Finally in either `Webapp` or `Webapp-Heroku` directory, run -    
+  ```
+  python3 manage.py migrate
+  python3 manage.py runserver
+  ```
 
 ## Team Memebers
 
