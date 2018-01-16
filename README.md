@@ -19,7 +19,7 @@ After these steps, the subtitles zip file is downloaded and a mail is sent to th
 
 Since, the webapp is currently deployed on Heroku, and Heroku times out the HTTP transactions after 30 seconds (and we require more time to generate the srt files for longer videos), our webapp is not able to support videos more than 40-50 seconds length.
 
-So, for testing the app, please use a short video. Like this [one](https://www.youtube.com/watch?v=jlmyJLnIOYw). On localhost, however, you can use a video as long as you wish.
+So, for testing the app, please use a short video. Like [this](https://www.youtube.com/watch?v=jlmyJLnIOYw) one. On localhost, however, you can use a video as long as you wish.
 
 ## Testing
 
