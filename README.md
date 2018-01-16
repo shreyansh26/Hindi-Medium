@@ -33,6 +33,7 @@ So, for testing the app, please use a short video. Like this [one](https://www.y
   python3 manage.py migrate
   python3 manage.py runserver
   ```
+* Head to [localhost](http://localhost:8000)
 
 ## Team Memebers
 
