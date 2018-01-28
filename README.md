@@ -7,6 +7,8 @@ The webapp is deployed [here](https://hindi-medium.herokuapp.com/).
 
 This webapp takes a Video URL and generates subtitle files in English and Hindi, for it. The basic working of the webapp can be understood by the following steps - 
 
+
+
 1. Scrape the video from the URL and convert it into an audio file.
 2. Split the audio file into smaller files of length 5 seconds.
 3. Use the audio files as input to the Microsoft Cognitive Services' Bing Speech API to convert it into text.
