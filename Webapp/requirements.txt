@@ -1,6 +1,6 @@
 Django==1.11.28
 youtube_dl==2017.12.31
-requests==2.18.4
+requests==2.20.0
 pydub==0.20.0
 beautifulsoup4==4.6.0
 gunicorn
