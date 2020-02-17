@@ -1,4 +1,4 @@
-Django==1.11.3
+Django==1.11.28
 youtube_dl==2017.12.31
 requests==2.18.4
 pydub==0.20.0
